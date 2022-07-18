@@ -1,0 +1,11 @@
+@import 'node.normalize.scss/_normalize.scss';
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}

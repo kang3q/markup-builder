@@ -1,0 +1,27 @@
+/*---- 공통으로 사용될 css 를 작성하세요. -----------------*/
+.u-tb {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.u-td {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.clearfix {
+  &:before,
+  &:after {
+    content: '';
+    clear: both;
+    display: table;
+  }
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/*---- end 공통으로 사용될 css 를 작성하세요. -----------------*/
