@@ -10,16 +10,16 @@ import { create } from 'browser-sync'
 gulp.task('default', () => runSequence('clean', ['sass', 'html:index', 'html', 'js', 'image', 'watch', 'browser-sync']))
 
 /////////////////////////// clean ///////////////////////////
-gulp.task('clean', () => gulp.src('dist').pipe(clean()))
+gulp.task('clean', () => gulp.src('docs').pipe(clean()))
 
 /////////////////////////// browser-sync ///////////////////////////
 const browserSync = create()
 gulp.task('browser-sync', ['sass', 'html', 'js'], () => {
   return browserSync.init({
-    server: './dist',
+    server: './docs',
     // server: {
-    //   // dist 폴더를 기준으로 웹서버 실행
-    //   baseDir: './dist',
+    //   // docs 폴더를 기준으로 웹서버 실행
+    //   baseDir: './docs',
     // },
   })
 })
@@ -30,7 +30,7 @@ gulp.task(
   () =>
     gulp
       .src('src/js/**/*.js')
-      .pipe(gulp.dest('dist/js'))
+      .pipe(gulp.dest('docs/js'))
       .pipe(browserSync.reload({ stream: true })), //browserSync 로 브라우저에 반영
   // .pipe(browserSync.stream()), //browserSync 로 브라우저에 반영
 )
@@ -49,7 +49,7 @@ gulp.task(
           cascade: false,
         }),
       )
-      .pipe(gulp.dest('dist/css'))
+      .pipe(gulp.dest('docs/css'))
       .pipe(browserSync.reload({ stream: true })), //browserSync 로 브라우저에 반영
   // .pipe(browserSync.stream()), //browserSync 로 브라우저에 반영
 )
@@ -67,7 +67,7 @@ gulp.task(
         }),
       )
       //.pipe(htmlvalidator())
-      .pipe(gulp.dest('dist/html'))
+      .pipe(gulp.dest('docs/html'))
       .pipe(browserSync.reload({ stream: true })), //browserSync 로 브라우저에 반영
   // .pipe(browserSync.stream()), //browserSync 로 브라우저에 반영
 )
@@ -83,13 +83,13 @@ gulp.task(
         }),
       )
       //.pipe(htmlvalidator())
-      .pipe(gulp.dest('dist'))
+      .pipe(gulp.dest('docs'))
       .pipe(browserSync.reload({ stream: true })), //browserSync 로 브라우저에 반영
   // .pipe(browserSync.stream()), //browserSync 로 브라우저에 반영
 )
 
 /////////////////////////// image ///////////////////////////
-gulp.task('image', () => gulp.src('src/image/**').pipe(gulp.dest('dist/image')))
+gulp.task('image', () => gulp.src('src/image/**').pipe(gulp.dest('docs/image')))
 
 /////////////////////////// watch ///////////////////////////
 gulp.task('watch', () => {

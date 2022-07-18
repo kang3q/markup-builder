@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "start": "gulp",
-    "start:dist": "http-server ./dist -p 3030 -g -o --proxy http://127.0.0.1:3030?"
+    "start:docs": "http-server ./docs -p 3030 -g -o --proxy http://127.0.0.1:3030?"
   },
   "engine-strict": true,
   "engines": {
